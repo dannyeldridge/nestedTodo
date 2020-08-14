@@ -145,12 +145,6 @@ var App = {
 		bindTodoListEvents("todo-list", "focusout", this.update, "edit");
 		bindTodoListEvents("todo-list", "click", this.destroy, "destroy");
 		bindTodoListEvents("todo-list", "click", this.addChild, "add-child");
-		// bindTodoListEvents(
-		// 	"footer",
-		// 	"click",
-		// 	this.destroyCompleted,
-		// 	"clear-completed"
-		// );
 	},
 	render: function () {
 		// Reset the UI
@@ -180,43 +174,6 @@ var App = {
 		});
 
 		this.render();
-	},
-	getActiveTodos: function () {
-		// function getCountOfActiveTodos(array, count) {
-		// 	for (var i = 0; i < array.length; i++) {
-		// 		var todo = array[i];
-		// 		if (!todo.completed) {
-		// 			count++;
-		// 		}
-		// 		if (todo.children.length > 0) {
-		// 			return getCountOfActiveTodos(todo.children, count);
-		// 		}
-		// 	}
-		// 	return count;
-		// }
-		// var count = getCountOfActiveTodos(this.todos, 0);
-		// console.log("active count", count);
-		// return count;
-
-		return this.todos.filter(function (todo) {
-			return !todo.completed;
-		});
-	},
-	getCompletedTodos: function () {
-		return this.todos.filter(function (todo) {
-			return todo.completed;
-		});
-	},
-	getFilteredTodos: function () {
-		if (this.filter === "active") {
-			return this.getActiveTodos();
-		}
-
-		if (this.filter === "completed") {
-			return this.getCompletedTodos();
-		}
-
-		return this.todos;
 	},
 	destroyCompleted: function () {
 		this.todos = this.getActiveTodos();

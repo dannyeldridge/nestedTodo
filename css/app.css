@@ -1,0 +1,17 @@
+#main,
+#footer {
+	display: none;
+}
+
+.container {
+  max-width: 500px;
+	margin: auto;
+}
+
+.header {
+	padding: 30px;
+  text-align: left;
+  background: #3223ff;
+  color: white;
+  font-size: 30px;
+}

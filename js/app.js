@@ -166,6 +166,23 @@ var App = {
 		document.getElementById("new-todo").focus();
 		util.store("todos", this.todos);
 	},
+	getFilteredTodos: function () {
+
+		// check to see what filter is set to. 
+
+		// If filter === active, call getActiveTodos()
+		if (this.filter === 'active') {    
+			return this.getActiveTodos();
+		}
+
+		// If filter === active, call getCompletedTodos()
+		if (this.filter === 'completed') {
+			return this.getCompletedTodos();
+		}
+
+		// Otherwise, return all todos. 
+		return this.todos;
+	},
 	toggleAll: function (e) {
 		var isChecked = document.getElementById(e.target.id).checked;
 
